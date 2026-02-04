@@ -1,4 +1,4 @@
-package com.backend.to_do;
+package com.backend.to_do.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
