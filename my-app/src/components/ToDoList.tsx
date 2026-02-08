@@ -8,7 +8,7 @@ function ToDoList () {
     
     return (
         <>
-            <div className="bg-stone-300/85 rounded-lg px-30 py-40">
+            <div className="bg-[#F4F3EE]/65 outline-4 outline-[#6D6943] outline-double rounded-lg px-30 py-40">
             <AddTask />
                 {taskData.map((task) =>
                     <div key={task.id}>

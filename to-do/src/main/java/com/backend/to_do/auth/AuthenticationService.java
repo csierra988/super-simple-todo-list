@@ -24,9 +24,9 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         var user = Users.builder()
             .name(request.getName())
-            .username(request.getUsername())
             .password(passwordEncoder.encode(request.getPassword()))
             .role(Roles.USER)
+            .username(request.getUsername())
             .build();
         
         repository.save(user);

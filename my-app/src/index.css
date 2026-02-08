@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+html,
 body {
-  background-color: #F0EAD6;
+  min-height: 100%;
+}
+
+body {
+  /* background-image: 
+    radial-gradient(rgb(244, 243, 238) 28.8%, transparent 46%),
+    radial-gradient(rgb(244, 243, 238) 28.8%, transparent 46%);
+  background-position: 0px 0px, 104px 104px;
+  background-size: 208px 208px;
+  background-color: rgb(200, 161, 177); */
+
+  /* 0% tipsiness */
+  background-image: 
+    radial-gradient(rgb(244, 243, 238) 28.8%, transparent 28.8%),
+    radial-gradient(rgb(244, 243, 238) 28.8%, transparent 28.8%);
+  background-position: 0px 0px, 104px 104px;
+  background-size: 208px 208px;
+  background-color: rgb(200, 161, 177);
 }

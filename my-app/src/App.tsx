@@ -1,17 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import ToDoList from './components/ToDoList';
+import ToDoPage from './pages/ToDoPage';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 function App() {
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen w-full">
-        <div className="grid grid-cols-1 grid-rows-1">
-            <p className='text-center'>My </p>
-            <p className='text-center pb-6'>TO DO LIST</p>
-            <ToDoList />
-        </div>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/todo" element={<ToDoPage />} />
+        <Route path="/" element={<ToDoPage />} />
+      </Routes>
     </>
   )
 }

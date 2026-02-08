@@ -31,4 +31,6 @@ public class UsersController {
         //returns a JSON or XML with the users
         return userRepository.findAll();
     }
+
+    
 }

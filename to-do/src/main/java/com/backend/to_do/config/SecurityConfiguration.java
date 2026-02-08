@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authenticationProvider;
+    private static final String[] WHITE_LIST = {"/api/auth/**", "/"};
 
     @Bean
     /** Configures the http security of the application */
@@ -28,7 +29,7 @@ public class SecurityConfiguration {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(req ->
-                req.requestMatchers("/api/auth/**") //white list
+                req.requestMatchers(WHITE_LIST) //white list
                     .permitAll()
                     .anyRequest()
                     .authenticated() //any other request will require authentication
