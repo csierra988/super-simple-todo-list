@@ -3,6 +3,7 @@ import './App.css';
 import ToDoPage from './pages/ToDoPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import RequireAuth from './auth/RequireAuth';
 
 function App() {
 
@@ -11,8 +12,10 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/todo" element={<ToDoPage />} />
-        <Route path="/" element={<ToDoPage />} />
+        <Route element={<RequireAuth/>}>
+            <Route path="/todo" element={<ToDoPage />} />
+            <Route path="/" element={<ToDoPage />} />
+        </Route>
       </Routes>
     </>
   )

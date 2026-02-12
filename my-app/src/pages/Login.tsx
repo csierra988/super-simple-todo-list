@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
     const {login} = useAuth();
@@ -9,15 +9,13 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = (location.state as any)?.from?.pathname || "/";
 
     async function onSubmit(event: React.SubmitEvent) {
         event.preventDefault();
         setErrorMessage("");
         try {
             await login(username, password);
-            navigate(from, {replace: true});
+            navigate('/');
         } catch(error) {
             setErrorMessage(String(error));
         }
@@ -26,7 +24,7 @@ function Login() {
     return (
         <>
             <div className="flex min-h-screen items-center justify-center p-4">
-            <div className="bg-[#F4F3EE]/70 backdrop-blur-md outline-4 outline-[#6D6943] outline-double rounded-lg px-8 py-10 w-full max-w-md shadow-2xl">
+            <div className="bg-[#F4F3EE]/70 backdrop-blur-sm outline-4 outline-[#6D6943] outline-double rounded-lg px-8 py-10 w-full max-w-md shadow-2xl">
 
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -52,7 +50,7 @@ function Login() {
 
                     </div>
                     <div>
-                    <div className="flex items-center justify-between">
+                    <div className="mt-2 flex items-center justify-between">
                         <label htmlFor="password" className="block text-sm/6 font-medium">
                             Password
                         </label>
@@ -67,6 +65,12 @@ function Login() {
                             Log in
                         </button>
                     </div>
+
+                    <nav className="mt-6 text-center text-sm/6">
+                        <Link to="/signup" className="font-semibold hover:text-[#6D6943]">
+                            Sign up here!
+                        </Link>
+                    </nav>
 
                 </form>
             </div>

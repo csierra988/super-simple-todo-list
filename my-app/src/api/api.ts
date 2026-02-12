@@ -25,10 +25,34 @@ export const api = axios.create({
 
 //adds the JWT to the request
 api.interceptors.request.use((config) => {
-    const token = getToken();
-    if (token) config.headers.Authorization = `Bearer ${token}`;
+    const url = config.url ?? "";
+    const isAuthEndpoint = url.includes("/api/auth/register") || url.includes("/api/auth/authenticate");
+
+    //avoiding sending possibly expired tokens
+    if (!isAuthEndpoint) {
+        const token = getToken();
+        if (token) config.headers.Authorization = `Bearer ${token}`;
+    }
+    else {
+        delete (config.headers as any)?.Authorization;
+    }
+    
     return config;
 });
+
+api.interceptors.response.use(
+    (res) => res,
+    (err) => {
+        const status = err?.response?.status;
+
+        //removing expired tokens
+        if (status === 401 || status === 403) {
+            localStorage.removeItem("accessToken");
+        }
+
+        return Promise.reject(err);
+    }
+)
 
 export function isAxiosError(e: unknown): e is AxiosError {
     return axios.isAxiosError(e);

@@ -23,7 +23,7 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
             const me = await authApi.me();
             setUser(me);
         } catch (error) {
-            if (isAxiosError(error) && error.response?.status === 401) {
+            if (isAxiosError(error) && (error.response?.status === 401 || error.response?.status === 403)) {
                 clearToken();
                 setUser(null);
             }
