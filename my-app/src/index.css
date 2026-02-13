@@ -1,4 +1,45 @@
+@font-face {
+  font-family: 'MiltonOne';
+  src: url('./assets/Milton_One.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
+
+@theme {
+  --font-milton-one: "MiltonOne";
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-transparent {
+    scrollbar-color: rgba(109, 105, 67, 0.75) transparent; /* Firefox */
+  }
+
+  .scrollbar-transparent::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-transparent::-webkit-scrollbar-thumb {
+    background: rgba(109, 105, 67, 0.75);
+    border-radius: 9999px;
+  }
+}
+
 
 html,
 body {

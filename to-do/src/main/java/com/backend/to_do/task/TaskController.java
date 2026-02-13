@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,13 +37,14 @@ public class TaskController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PutMapping("/update/{id}")
-    public void updateTask(@PathVariable Integer id, @RequestBody TaskRequest request) {
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Task> completeTask(@PathVariable Integer id, @RequestBody TaskRequest request) {
+        return ResponseEntity.ok(service.complete(id, request));
     }
 
-    @DeleteMapping("/delete")
-    public void deleteTask() {
-        
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTask(@PathVariable Integer id) {
+        service.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

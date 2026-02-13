@@ -16,7 +16,7 @@ public class TaskService {
     private final TaskRepository repository;
     private final UsersRepository usersRepository;
 
-    public Task add(TaskRequest request) {
+    private Users currentUser() {
         String username = SecurityContextHolder
             .getContext()
             .getAuthentication()
@@ -24,6 +24,12 @@ public class TaskService {
         
         Users user = usersRepository.findByUsername(username)
             .orElseThrow();
+        
+        return user;
+    }
+
+    public Task add(TaskRequest request) {
+        Users user = currentUser();
 
         Task task = Task.builder()
             .task(request.getTask())
@@ -35,17 +41,29 @@ public class TaskService {
     }
 
     public List<Task> getAll() {
-       String username = SecurityContextHolder
-            .getContext()
-            .getAuthentication()
-            .getName();
-        
-        Users user = usersRepository.findByUsername(username)
-            .orElseThrow();
-
+        Users user = currentUser();
         return repository.findAllByUser(user);
     }
 
+    public Task complete(Integer id, TaskRequest request) {
+        Users user = currentUser();
+        
+        Task task = repository.findByTaskIdAndUser(id, user)
+            .orElseThrow();
+        
+        if (request.getCompleted() == null) {
+            throw new RuntimeException("missing completion");
+        }
+        task.setCompleted(request.getCompleted());
+        return repository.save(task);
+    }
 
+    public void delete(Integer id) {
+        Users user = currentUser();
+        
+        Task task = repository.findByTaskIdAndUser(id, user)
+            .orElseThrow();
 
+        repository.delete(task);
+    }
 }
