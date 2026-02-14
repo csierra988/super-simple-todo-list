@@ -5,7 +5,7 @@
 
 I've been following along with spring guides to aid with learning spring with java, however I wanted to do a really simple project, thus super simple to do list was born. I also decided to experiment with tailwind as well since I'm not the most familiar with it, but I do enjoy reducing the number of necessary css files if I can!
 
-![alt text](../super-simple-to-do-list.png)
+![alt text](./my-app/images/super-simple-to-do-list.png)
 
 ## Installation
 1. Clone the repository onto your local machine.
