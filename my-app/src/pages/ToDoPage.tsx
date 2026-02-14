@@ -13,15 +13,23 @@ function ToDoPage() {
     }
 
     return (
-        <>
-        <div className="flex items-center justify-center h-screen w-full">
-        <div className="grid grid-cols-1 grid-rows-1">
-            <p className='font-milton-one text-center text-8xl'>{user.name}'s</p>
-            <p className='text-center pb-6'>TO DO LIST</p>
-            <ToDoList />
+        <div className="flex items-center justify-center min-h-screen w-full p-4">
+            <div className="flex flex-col items-center">
+                
+                <h1 className='font-milton-bold text-9xl z-10 -mb-8 -ml-36 italic'>
+                    {user.name}’s
+                </h1>
+
+                <h2 className='font-vogue text-5xl tracking-tight [word-spacing:-4px] relative z-0'>
+                    TO DO LIST
+                </h2>
+
+                <div className="mt-4">
+                    <ToDoList />
+                </div>
+                
+            </div>
         </div>
-      </div>
-        </>
     )
 }
 

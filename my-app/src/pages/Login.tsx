@@ -45,7 +45,7 @@ function Login() {
                             Username
                         </label>
                         <div className="mt-2">
-                            <input value={username} onChange={(e) => setUsername(e.target.value)} name="username" type="text" className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1"/>
+                            <input value={username} onChange={(e) => setUsername(e.target.value)} name="username" type="text" className="block w-full rounded-md bg-isabelline px-3 py-1.5 text-base outline-1 -outline-offset-1 focus:outline-pinklav"/>
                         </div>
 
                     </div>
@@ -56,12 +56,12 @@ function Login() {
                         </label>
                     </div>
                     <div className="mt-2">
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" type="password" className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1"/>
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" type="password" className="block w-full rounded-md bg-isabelline px-3 py-1.5 text-base outline-1 -outline-offset-1 focus:outline-pinklav"/>
                     </div>
                     </div>
 
                     <div className="mt-10">
-                        <button type="submit" className="flex w-full justify-center rounded-mg bg-[#C8A1B1] px-3 py-1.5 text-sm/6 font-semibold hover:bg-[#6D6943] focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
+                        <button type="submit" className="flex w-full justify-center rounded-md rounded-mg bg-[#C8A1B1] px-3 py-1.5 text-sm/6 font-semibold hover:bg-[#6D6943] hover:text-isabelline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
                             Log in
                         </button>
                     </div>

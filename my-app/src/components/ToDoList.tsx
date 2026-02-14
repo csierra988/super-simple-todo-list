@@ -62,7 +62,7 @@ function ToDoList () {
     
     return (
         <>
-            <div className="bg-[#F4F3EE]/65 outline-4 outline-[#6D6943] backdrop-blur-sm outline-double rounded-lg w-[92vw] max-w-[860px] px-20 py-10 h-[70vh] max-h-[70vh] flex flex-col">
+            <div className="bg-[#F4F3EE]/65 outline-4 outline-[#6D6943] backdrop-blur-sm outline-double rounded-lg w-[92vw] max-w-215 px-20 py-10 h-[70vh] max-h-[70vh] flex flex-col">
             <div>
                 <AddTask onTaskAdded={handleTaskAdded} />
             </div>
@@ -70,9 +70,11 @@ function ToDoList () {
                 {tasks.map((task) =>
                     <div key={task.taskId} className="flex w-full flex-row items-center gap-3 py-1 pr-2">
                         <img src={task.completed ? stars : stars_uncomplete} onClick={() => handleUpdateTask(task.taskId, task.completed)} className="h-10 w-auto shrink-0 cursor-pointer"/>
-                        <p className="min-w-0 flex-1 break-words">{task.task}</p>
+                        <p className="min-w-0 flex-1 wrap-break-word">{task.task}</p>
                         <button onClick={(() => handleDelete(task.taskId))} type="button" className="ml-auto cursor-pointer p-1 text-white">
-                            <TrashSolidIcon size={20} color="#6D6943" />
+                            <div className="text-pinklav hover:text-reseda">
+                                <TrashSolidIcon size={20} />
+                            </div>
                         </button>
                     </div>
                 )}

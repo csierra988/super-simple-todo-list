@@ -9,6 +9,7 @@ function App() {
 
   return (
     <>
+    <div className="text-vandyke">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<ToDoPage />} />
         </Route>
       </Routes>
+    </div>
     </>
   )
 }

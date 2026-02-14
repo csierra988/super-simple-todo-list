@@ -5,10 +5,37 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'MiltonOneBold';
+  src: url('./assets/Milton_One_Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vogue';
+  src: url('./assets/Vogue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('./assets/AppleGaramond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 
 @theme {
+  --font-milton-bold: "MiltonOneBold";
   --font-milton-one: "MiltonOne";
+  --font-vogue: "Vogue";
+  --color-reseda: #6D6943;
+  --color-vandyke: #48372F;
+  --color-isabelline: #F4F3EE;
+  --color-pinklav: #C8A1B1;
 }
 
 @layer utilities {
